@@ -1,0 +1,18 @@
+# version: '3'
+# services:
+#   oracle11g:
+#     image: jaspeen/oracle-xe-11g
+#     container_name: oracle11g
+# #    volumes:
+# #      - oracle_data:/opt/oracle/oradata
+#     ports:
+#       - '1521:1521'
+#   app:
+#     container_name: spring
+#     build: .
+# #    volumes:
+# #      - ./sql:/sql
+#     ports:
+#       - '8000:8000'
+# #volumes:
+# #  oracle_data:

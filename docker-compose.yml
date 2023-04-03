@@ -1,0 +1,32 @@
+version: "3"
+services:
+  oracle11g:
+    image: jaspeen/oracle-xe-11g
+    container_name: oracle11g
+    ports:
+      - '1521:1521'
+    networks:
+      - app-network
+  spring:
+    image: sojong1003/spring-docker
+    container_name: spring
+    build: ./spring-docker
+    ports:
+      - '5000:5000'
+    networks:
+      - app-network
+  vue:
+    image: sojong1003/vue-spring
+    container_name: vue
+    build: ./vue-spring
+    ports:
+      - '8080:8080'
+    depends_on:
+      - spring
+    environment:
+      backend: spring:5000 
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
